@@ -1,0 +1,42 @@
+.bg_img{
+   background-image: url('../../assets/project-bg.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   width: 100%;
+   height: 50vh;
+  background-position: center 63px;
+  filter: blur(7px) grayscale(100%);
+  z-index: 0;
+}
+.prjt_bg_txt{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;   
+}
+.project_details{
+    background-color: black;   
+    
+}
+.capstone_tittle{
+    color: white;
+    text-align: center;
+    padding-top: 30px;
+}
+.capstone_projects{
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: space-around;
+   padding-top: 50px;
+ gap: 50px;
+}
+.mini_projects{
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap : 50px
+}
+ 
