@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Contact.css"
 import { Input } from 'antd';
 import {HomeFilled, PhoneFilled, GithubFilled, MailOutlined, LinkedinFilled} from '@ant-design/icons';
+import axios from 'axios'
 
 
 function Contact() {
@@ -35,6 +36,7 @@ function Contact() {
       subject,
       message
     }
+    console.log(details)
       const res = await axios.post('https://portfolio-be-1.onrender.com/contact', details)
      setName("");
      setEmail("");
