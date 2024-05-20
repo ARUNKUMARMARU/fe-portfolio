@@ -8,23 +8,28 @@ import axios from 'axios'
 function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState('');
+  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleName = (e)=>{
+    setSuccess('')
     setName(e.target.value)
     
   };
 
   const handleEmail = (e)=>{
+    setSuccess('')
     setEmail(e.target.value)
   };
 
   const handleSubject = (e)=>{
+    setSuccess('')
     setSubject(e.target.value)
   };
 
   const handleMessage = (e)=>{
+    setSuccess('')
     setMessage(e.target.value)
   };
 
@@ -38,10 +43,14 @@ function Contact() {
     }
    
       const res = await axios.post('https://portfolio-be-1.onrender.com/contact', details)
+     
      setName("");
      setEmail("");
      setSubject("");
      setMessage("");
+     if(res.data=="Details stored successfully"){
+      setSuccess("Thank you for contacting me. I appreciate your message and will respond as soon as possible.")
+     }
   };
   return (
     <div>
@@ -67,7 +76,7 @@ function Contact() {
      <div >
      <label htmlFor="name">Your Name</label>  <br />     
        <Input  style={{backgroundColor:'grey', width:'55vh',height:'7vh', color:'white', fontSize:'20px'}} 
-       value={name} onChange={handleName}/>    
+       value={name} onChange={handleName} />    
    
      </div>         
           </div>
@@ -112,8 +121,10 @@ value={message} onChange={handleMessage}></textarea>
 <button className='button' type='submit'>Submit</button> 
 
 </div>    
-     </div>
-
+     </div> <br />
+     <div className='success'>
+  {success}
+    </div>
 
 
     </div>
